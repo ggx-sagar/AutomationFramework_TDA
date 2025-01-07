@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="E2E_Suite">
+  <test thread-count="5" name="FullFlow_Test">
+    <classes>
+      <class name="testcases_Android.Verify_OrderExceptions_From_OrderDetails_Android"/>
+      <class name="testcases_Android.Verify_BackDateCompletionofOrder_PICKUP_AND_DELIVER_ALL_Android"/>
+      <class name="testcases_Android.Verify_BackDateCompletionofOrder_By_OrderDetails"/>
+      <class name="testcases_Android.Verify_CompletionOfOrder_By_PICKUP_OR_DELIVER_ALL_Android"/>
+      <class name="testcases_Android.Verify_CompletionofOrder_from_OrderDetails_Android"/>
+      <class name="testcases_Android.Verify_RecievedByOther_Android"/>
+      <class name="testcases_Android.Verify_UserLogin_Android"/>
+    </classes>
+  </test> <!-- FullFlow_Test -->
+</suite> <!-- E2E_Suite -->

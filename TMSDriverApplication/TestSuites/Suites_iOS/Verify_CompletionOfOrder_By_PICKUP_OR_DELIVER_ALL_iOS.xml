@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Verify_CompletionOfOrder_By_PICKUP_OR_DELIVER_ALL_iOS_Suite">
+  <test thread-count="5" name="Verify_CompletionOfOrder_By_PICKUP_OR_DELIVER_ALL_iOS_Test">
+    <classes>
+      <class name="testcases_iOS.Verify_CompletionOfOrder_By_PICKUP_OR_DELIVER_ALL_iOS"/>
+    </classes>
+  </test> <!-- Verify_CompletionOfOrder_By_PICKUP_OR_DELIVER_ALL_iOS_Test -->
+</suite> <!-- Verify_CompletionOfOrder_By_PICKUP_OR_DELIVER_ALL_iOS_Suite -->
