@@ -5,32 +5,31 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-
 import basepage.BasePage;
 import iOS_Locationpermission.ClickOnLocation;
 import io.appium.java_client.AppiumDriver;
 import propertyutility.PropertyUtility;
 
-
 public class Login_Page_iOS extends BasePage {
-    public Login_Page_iOS(AppiumDriver driver)
-    {
-            this.driver = driver;
-            PageFactory.initElements(driver, this);
-          }
+	
+	public Login_Page_iOS(AppiumDriver driver) {
+//		this.driver = driver;
+		PageFactory.initElements(driver, this);
+	}
+
 	String USERNAME = PropertyUtility.getreaddata("UserName");
 	String PASSWORD = PropertyUtility.getreaddata("PassWord");
 
-//  @FindBy(xpath = "//XCUIElementTypeTextField[@name=\"Username\"]")
-//  protected WebElement Username;
-//public void Enterusername() throws Exception {
-//
-//	Username.click();
-//	Username.sendKeys(USERNAME);
-	
-	
-//}
-	
+	@FindBy(xpath = "//XCUIElementTypeTextField[@name=\"Username\"]")
+	protected WebElement Username;
+
+	public void Enterusername() throws Exception {
+
+		Username.click();
+		Username.sendKeys(USERNAME);
+
+	}
+
 	public void iOS_Username()  {
 		try 
 		{
@@ -46,36 +45,27 @@ public class Login_Page_iOS extends BasePage {
 
 		}
 	}
-	
-	
-	
-	
+
 	// Enter PassWord
-	
-	
+
 	public void iOS_Password() {
 
-
-	WebElement passWord = driver.findElement(By.xpath("//*[contains(@name,'Password')]"));
-			passWord.click();
-			passWord = driver.findElement(By.xpath("//*[contains(@name,'Password')]"));
-			passWord.click();
-			passWord.sendKeys(PASSWORD);
+		WebElement passWord = driver.findElement(By.xpath("//*[contains(@name,'Password')]"));
+		passWord.click();
+		passWord = driver.findElement(By.xpath("//*[contains(@name,'Password')]"));
+		passWord.click();
+		passWord.sendKeys(PASSWORD);
 
 	}
-	
-	
-	
+
 	// Click on Submit
 	public void iOS_Submit() {
-			WebElement submit = driver.findElement(By.xpath("//XCUIElementTypeButton[@name=\"Sign in\"]"));
-			submit.click();
+		WebElement submit = driver.findElement(By.xpath("//XCUIElementTypeButton[@name=\"Sign in\"]"));
+		submit.click();
 	}
 
-	
 	// Check for Save Password Alert
-	
-	
+
 //	public void Save_Password() {
 //		try {
 //			MobileElement save_password = driver
@@ -90,24 +80,21 @@ public class Login_Page_iOS extends BasePage {
 //		}
 //	}
 
-	
-	//Check for Continue button
-	
-	
+	// Check for Continue button
+
 	public void Continue_iOS() throws InterruptedException {
-		
-			WebElement Continue_ios = driver.findElement(By.xpath("//XCUIElementTypeButton[@name=\"Continue\"]"));
-			if (Continue_ios.isDisplayed()) {
-				Continue_ios.click();
-	}}
-	public void Click_on_Location() {
-		ClickOnLocation.clickCordinate(driver);;
+
+		WebElement Continue_ios = driver.findElement(By.xpath("//XCUIElementTypeButton[@name=\"Continue\"]"));
+		if (Continue_ios.isDisplayed()) {
+			Continue_ios.click();
+		}
 	}
 
-	
+	public void Click_on_Location() {
+		ClickOnLocation.clickCordinate(driver);
+		;
+	}
 
-
-	
 //
 //	public void Allowlocation_iOS() {
 //		try {
@@ -151,5 +138,5 @@ public class Login_Page_iOS extends BasePage {
 //			Allowlocation_iOS();
 //		}
 //	}
-  
+
 }

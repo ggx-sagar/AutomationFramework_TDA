@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Failed suite [LoginpageSuite_iOS]" guice-stage="DEVELOPMENT">
+  <test thread-count="5" name="VerifyLoginPage(failed)">
+    <classes>
+      <class name="testcases_iOS.VerifyUserLogin_iOS">
+        <methods>
+          <include name="GetAppLaunch"/>
+          <include name="setupApp"/>
+        </methods>
+      </class> <!-- testcases_iOS.VerifyUserLogin_iOS -->
+    </classes>
+  </test> <!-- VerifyLoginPage(failed) -->
+</suite> <!-- Failed suite [LoginpageSuite_iOS] -->
