@@ -23,7 +23,6 @@ public class Verify_CompletionofOrder_from_OrderDetails_Android extends BasePage
 	@Test(priority = 1)
 	public void setupApp() {
 		setup();
-		TestListeners.testReport.get().log(Status.INFO, "Application Setup, Launch SuccessFully");
 		login = new LoginPage_Android(driver);
 
 
@@ -34,8 +33,6 @@ public class Verify_CompletionofOrder_from_OrderDetails_Android extends BasePage
 
 	{
 		login.Android_credential();
-		TestListeners.testReport.get().log(Status.INFO, "Compare OS, Enter Credentials");
-
 	}
 	
 	@Test(priority = 3)
@@ -43,7 +40,6 @@ public class Verify_CompletionofOrder_from_OrderDetails_Android extends BasePage
 
 	{
 		login.Continue_button();
-		TestListeners.testReport.get().log(Status.INFO, "Click on Continue after login.");
 
 	}
 	@Test(priority = 4)
@@ -51,23 +47,18 @@ public class Verify_CompletionofOrder_from_OrderDetails_Android extends BasePage
 
 	{
 		login.Location_Allow_button();
-		TestListeners.testReport.get().log(Status.INFO, "Location Allow Radio button clicked.");
-
 	}
 	@Test(priority = 5)
 	public void ClickonAlwaysallowlocation() throws Exception
 
 	{
 		login.Allow_always_button();
-		TestListeners.testReport.get().log(Status.INFO, "Allow always Location.");
-
 	}
 	@Test(priority = 6)
 	public void Clickonback() throws Exception
 
 	{
 		login.Back_button();
-		TestListeners.testReport.get().log(Status.INFO, "Click on back.");
 		details=new OrderDetails_Android(driver);
 
 	}
@@ -77,8 +68,6 @@ public class Verify_CompletionofOrder_from_OrderDetails_Android extends BasePage
 	{
 
 		details.Taskselector();
-		TestListeners.testReport.get().log(Status.INFO, "Task selected and Pickup Done");
-
 	}
 	@Test(priority = 8)
 	public void ClickonPickupButton() throws Exception
@@ -86,7 +75,6 @@ public class Verify_CompletionofOrder_from_OrderDetails_Android extends BasePage
 	{
 
 		details.PickedDetails();
-		TestListeners.testReport.get().log(Status.INFO, "Task selected and Pickup Done");
 
 	}
 	@Test(priority = 9)
@@ -95,7 +83,6 @@ public class Verify_CompletionofOrder_from_OrderDetails_Android extends BasePage
 	{
 
 		details.Delivertask();
-		TestListeners.testReport.get().log(Status.INFO, "Deliver task found");
 	}
 	@Test(priority = 10)
 	public void ClickonDeliveredbutton() throws Exception
@@ -103,14 +90,12 @@ public class Verify_CompletionofOrder_from_OrderDetails_Android extends BasePage
 	{
 
 		details.DeliveryDetails();
-		TestListeners.testReport.get().log(Status.INFO, "Deliver Done");
 	}
 	
 	
 	@AfterTest
 	public void quitDriver() {
-		driver.quit();
-		TestListeners.testReport.get().log(Status.INFO, "Driver Quit Successfully");
+//		driver.quit();
 	
 	}
 

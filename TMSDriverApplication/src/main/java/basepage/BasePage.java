@@ -14,7 +14,7 @@ import utilities.appiumServerManager;
 
 public class BasePage extends CommonUtils{
 	public void z(AppiumDriver driver) {
-//		this.driver = driver;
+
 		PageFactory.initElements(driver, this);
 	}
 
@@ -23,7 +23,7 @@ public class BasePage extends CommonUtils{
 	public static String OS=PropertyUtility.getreaddata("Operating_System");
 	
 	public void setup() {
-		appiumServerManager.startAppiumServer();
+
 		PropertyUtility.getreaddata(key);
 		if (OS.equalsIgnoreCase("iOS")) {
 			CommonUtils.setiOSCapabilities();

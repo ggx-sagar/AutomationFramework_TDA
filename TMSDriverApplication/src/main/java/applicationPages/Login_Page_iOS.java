@@ -13,7 +13,6 @@ import propertyutility.PropertyUtility;
 public class Login_Page_iOS extends BasePage {
 	
 	public Login_Page_iOS(AppiumDriver driver) {
-//		this.driver = driver;
 		PageFactory.initElements(driver, this);
 	}
 
@@ -22,77 +21,54 @@ public class Login_Page_iOS extends BasePage {
 
 	@FindBy(xpath = "//XCUIElementTypeTextField[@name=\"Username\"]")
 	protected WebElement Username;
-
-	public void Enterusername() throws Exception {
-
-		Username.click();
-		Username.sendKeys(USERNAME);
-
+	
+	public void iOS_Username() throws InterruptedException  {
+		Thread.sleep(10000);
+			Username.click();
+			Username.sendKeys(USERNAME);
 	}
 
-	public void iOS_Username()  {
-		try 
-		{
-
-			WebElement userName = driver.findElement(By.xpath("//XCUIElementTypeTextField[@name=\"Username\"]"));
-			userName.click();
-			userName.sendKeys(USERNAME);
-		}
-		catch (Exception e) {
-			System.out.println(e);
-			System.out.println("UserName Not Found-Searching for Password");
-//			iOS_Password();
-
-		}
-	}
-
-	// Enter PassWord
-
-	public void iOS_Password() {
-
-		WebElement passWord = driver.findElement(By.xpath("//*[contains(@name,'Password')]"));
+	@FindBy(xpath = "//*[contains(@name,'Password')]")
+	protected WebElement passWord;
+	
+	public void iOS_Password() throws InterruptedException {
+		Thread.sleep(10000);
 		passWord.click();
 		passWord = driver.findElement(By.xpath("//*[contains(@name,'Password')]"));
 		passWord.click();
 		passWord.sendKeys(PASSWORD);
-
 	}
 
-	// Click on Submit
+	
+	@FindBy(xpath = "//XCUIElementTypeButton[@name=\"Sign in\"]")
+	protected WebElement submit;
+	
 	public void iOS_Submit() {
-		WebElement submit = driver.findElement(By.xpath("//XCUIElementTypeButton[@name=\"Sign in\"]"));
 		submit.click();
 	}
 
-	// Check for Save Password Alert
 
-//	public void Save_Password() {
-//		try {
-//			MobileElement save_password = driver
-//					.findElement(By.xpath("//XCUIElementTypeButton[@name=\"Save Password\"]"));
-//			if (save_password.isDisplayed()) {
-//				click(save_password);
-//				WaitUtility.implicitwait(time_S);
-//			}
-//		} catch (Exception e) {
-//			System.out.println("Save Password Not Found-Searching for next Element");
-////			Continue_iOS();
-//		}
-//	}
 
-	// Check for Continue button
+
+
+
 
 	public void Continue_iOS() throws InterruptedException {
+		Thread.sleep(10000);
 
 		WebElement Continue_ios = driver.findElement(By.xpath("//XCUIElementTypeButton[@name=\"Continue\"]"));
 		if (Continue_ios.isDisplayed()) {
 			Continue_ios.click();
+			Thread.sleep(5000);
 		}
 	}
 
-	public void Click_on_Location() {
-		ClickOnLocation.clickCordinate(driver);
-		;
+	@FindBy(xpath = "//XCUIElementTypeButton[@name='Cancel']")
+	protected WebElement dontallowlocation;
+	
+	public void location() throws InterruptedException  {
+		Thread.sleep(10000);
+			dontallowlocation.click();
 	}
 
 //

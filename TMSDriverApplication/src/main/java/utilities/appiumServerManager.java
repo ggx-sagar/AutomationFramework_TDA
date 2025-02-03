@@ -17,7 +17,7 @@ public class appiumServerManager {
 		appiumServiceBuilder = new AppiumServiceBuilder();
 		appiumServiceBuilder.withIPAddress("127.0.0.1");
 		appiumServiceBuilder.usingPort(4723);
-//		appiumServiceBuilder.withArgument(GeneralServerFlag.PLUGINS, "element-wait");
+//		appiumServiceBuilder.withArgument(GeneralServerFlag.USE_PLUGINS, "element-wait");
 //		appiumServiceBuilder.withArgument(GeneralServerFlag.PLUGINS, String.join(",", appiumPlugins));
 		appiumServiceBuilder.withArgument(GeneralServerFlag.LOG_LEVEL, "debug");
 

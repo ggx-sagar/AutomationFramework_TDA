@@ -22,8 +22,7 @@ public class LoginPage_Android extends BasePage {
 	
     public LoginPage_Android(AppiumDriver driver)
     {
-            this.driver = driver;
-//            PageFactory.initElements(new AppiumFieldDecorator(this.driver), this);
+    	PageFactory.initElements(driver, this);
         
     }
 	
@@ -62,7 +61,7 @@ public class LoginPage_Android extends BasePage {
 		WebElement submit = driver.findElement(By.xpath("//android.widget.Button[@content-desc='Sign in']"));
 //		WaitUtility.ExplicitWait(driver, submit, time_L);
 		submit.click();
-
+		Thread.sleep(5000);
 //		Continue_button();
 
 	}
@@ -82,6 +81,7 @@ public class LoginPage_Android extends BasePage {
 	}
 
 	public void Location_Allow_button() throws InterruptedException {
+		Thread.sleep(5000);
 		WebElement Location_allow = driver.findElement(By.xpath(
 				"//android.widget.Button[@resource-id=\"com.android.permissioncontroller:id/permission_allow_foreground_only_button\"]"));
 		if (Location_allow.isDisplayed()) {
@@ -96,6 +96,7 @@ public class LoginPage_Android extends BasePage {
 	}
 
 	public void Allow_always_button() throws InterruptedException {
+		Thread.sleep(5000);
 		WebElement Allow_Always = driver
 				.findElement(By.id("com.android.permissioncontroller:id/allow_always_radio_button"));
 		if (Allow_Always.isDisplayed()) {
@@ -110,6 +111,7 @@ public class LoginPage_Android extends BasePage {
 	}
 
 	public void Back_button() throws InterruptedException {
+		Thread.sleep(5000);
 		WebElement Back = driver.findElement(By.xpath("//android.widget.ImageButton[@content-desc='Back']"));
 		if (Back.isDisplayed()) {
 //			WaitUtility.ExplicitWait(driver, Back, time_L);
@@ -123,7 +125,8 @@ public class LoginPage_Android extends BasePage {
 		}
 	}
 
-	public void Activity_button() {
+	public void Activity_button() throws InterruptedException {
+		Thread.sleep(5000);
 		try {
 			WebElement Activity = driver.findElement(By.xpath(
 					"//android.widget.Button[@resource-id=\"com.android.permissioncontroller:id/permission_allow_button\"]"));
@@ -136,51 +139,4 @@ public class LoginPage_Android extends BasePage {
 			System.out.println("No Activity Found- Moving to next test");
 		}
 	}
-
-
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-//	public void compare() throws Exception {
-//	if (OS.equalsIgnoreCase("iOS")) {
-//		iOS_Username();
-//	} else if (OS.equalsIgnoreCase("Android")) {
-//		Android_credential();
-//	}
-//}	
-	
-
-//	public Login_Page_iOS(AppiumDriver<MobileElement> driver) {
-//		this.driver = driver;
-//		PageFactory.initElements(driver, this);
-//		String wait=PropertyUtility.getreaddata("TIME");
-//		int time=Integer.parseInt(wait);
-//		}
-//
-//@AndroidFindBy(xpath = "(//*[@class='android.widget.EditText'])[1]")
-//private MobileElement userName;
-//
-//@AndroidFindBy(xpath = "(//*[@class='android.widget.EditText'])[2]")
-//private MobileElement passWord;
-////
-//
-//public void username() {
-//
-//click(userName);
-//sendkeys(userName, "driver_hk_sagar");
-//
-//}
-//public void password() {
-//click(passWord);
-// sendkeys(passWord, "qwerty");
-//		------------------------------------------------------------------------------------------------------------------------------------------------------------
-
 }

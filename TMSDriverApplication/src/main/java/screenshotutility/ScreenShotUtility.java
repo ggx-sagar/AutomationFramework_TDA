@@ -9,6 +9,7 @@ import java.util.Date;
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
+import org.openqa.selenium.support.PageFactory;
 
 import basepage.BasePage;
 import io.appium.java_client.AppiumDriver;
@@ -16,8 +17,7 @@ import io.appium.java_client.AppiumDriver;
 public class ScreenShotUtility extends BasePage{
     public ScreenShotUtility(AppiumDriver driver)
     {
-            this.driver = driver;
-//            PageFactory.initElements(new AppiumFieldDecorator(this.driver), this);
+            PageFactory.initElements(driver, this);
         
     }
 

@@ -3,7 +3,7 @@ package applicationPages;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
-
+import applicationUtility.ApplicationUtility;
 import basepage.BasePage;
 import io.appium.java_client.AppiumDriver;
 import propertyutility.PropertyUtility;
@@ -25,11 +25,12 @@ public class OrderDetails_Android extends BasePage {
 
 	public void Taskselector() {
 		try {
+			Thread.sleep(5000);
 			WebElement PickupTask = driver.findElement(By.xpath("//android.view.View[@content-desc=\"PICK-UP\"]"));
 			if (PickupTask.isDisplayed()) {
-				System.out.println("Pickup task found");
+				System.out.println("Pickup task found");Thread.sleep(5000);
 				WebElement Order_details = driver.findElement(By.xpath("//android.widget.ScrollView/android.view.View[1]/android.view.View/android.view.View[4]"));
-//				WaitUtility.ExplicitWait(driver, Order_details, time_L);
+			
 				Order_details.click();
 //				PickedDetails();
 
@@ -52,6 +53,7 @@ public class OrderDetails_Android extends BasePage {
 
 //				WaitUtility.ExplicitWait(driver, DeliveryTask, time_L);
 				WebElement Order_details1 = driver.findElement(By.xpath("//android.view.View[4]"));
+				Thread.sleep(5000);
 				System.out.println("Element processed");
 //				WaitUtility.ExplicitWait(driver, Order_details1, time_L);
 				Order_details1.click();
@@ -67,7 +69,8 @@ public class OrderDetails_Android extends BasePage {
 
 	public void PickedDetails() {
 		try {
-//			ApplicationUtility.scrollTillElement();
+			ApplicationUtility.scrollTillElement();
+			Thread.sleep(5000);
 			WebElement PickedUp = driver
 					.findElement(By.xpath("//android.widget.Button[@content-desc=\"Picked up\"]"));
 

@@ -5,6 +5,7 @@ import org.testng.annotations.Test;
 import org.testng.annotations.Test;
 import org.testng.annotations.Test;
 import org.testng.annotations.AfterTest;
+import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.Test;
 
 import com.aventstack.extentreports.Status;
@@ -15,18 +16,25 @@ import extentlisteners.TestListeners;
 import io.appium.java_client.AppiumDriver;
 
 import propertyutility.PropertyUtility;
+import utilities.appiumServerManager;
 
 
 public class Verify_UserLogin_Android extends BasePage {
+	
 // Creating Object
-
 	LoginPage_Android login;
+//	@BeforeSuite
+//	public void AppiumStart() {
+//		appiumServerManager.startAppiumServer();
+//	}
+
+
 
 
 	@Test(priority = 1)
 	public void setupApp() {
 		setup();
-		TestListeners.testReport.get().log(Status.INFO, "Application Setup, Launch SuccessFully");
+//		TestListeners.testReport.get().log(Status.INFO, "Application Setup, Launch SuccessFully");
 		login = new LoginPage_Android(driver);
 
 
@@ -37,7 +45,7 @@ public class Verify_UserLogin_Android extends BasePage {
 
 	{
 		login.Android_credential();
-		TestListeners.testReport.get().log(Status.INFO, "Compare OS, Enter Credentials");
+//		TestListeners.testReport.get().log(Status.INFO, "Compare OS, Enter Credentials");
 
 	}
 	
@@ -46,7 +54,7 @@ public class Verify_UserLogin_Android extends BasePage {
 
 	{
 		login.Continue_button();
-		TestListeners.testReport.get().log(Status.INFO, "Click on Continue after login.");
+//		TestListeners.testReport.get().log(Status.INFO, "Click on Continue after login.");
 
 	}
 	@Test(priority = 4)
@@ -54,7 +62,7 @@ public class Verify_UserLogin_Android extends BasePage {
 
 	{
 		login.Location_Allow_button();
-		TestListeners.testReport.get().log(Status.INFO, "Location Allow Radio button clicked.");
+//		TestListeners.testReport.get().log(Status.INFO, "Location Allow Radio button clicked.");
 
 	}
 	@Test(priority = 5)
@@ -62,7 +70,7 @@ public class Verify_UserLogin_Android extends BasePage {
 
 	{
 		login.Allow_always_button();
-		TestListeners.testReport.get().log(Status.INFO, "Allow always Location.");
+//		TestListeners.testReport.get().log(Status.INFO, "Allow always Location.");
 
 	}
 	@Test(priority = 6)
@@ -70,14 +78,14 @@ public class Verify_UserLogin_Android extends BasePage {
 
 	{
 		login.Back_button();
-		TestListeners.testReport.get().log(Status.INFO, "Click on back.");
+//		TestListeners.testReport.get().log(Status.INFO, "Click on back.");
 
 	}
 	
 	@AfterTest
 	public void quitDriver() {
 //		quit();
-		TestListeners.testReport.get().log(Status.INFO, "Driver Quit Successfully");
+//		TestListeners.testReport.get().log(Status.INFO, "Driver Quit Successfully");
 	
 	}
 

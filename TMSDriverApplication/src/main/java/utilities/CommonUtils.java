@@ -25,13 +25,14 @@ public class CommonUtils extends PropertyUtility {
 	public static void setAndroidCapabilities() {
 
 		caps.setCapability("platformName", props.getProperty("platform.Name"));
-		caps.setCapability("deviceName", props.getProperty("device.Name"));
+//		caps.setCapability("deviceName", props.getProperty("device.Name"));
+		caps.setCapability("udid", props.getProperty("UDID_ANDROID"));
 		caps.setCapability("automationName", props.getProperty("Automation.Name"));
 		caps.setCapability("appPackage", props.getProperty("App.Package"));
 		caps.setCapability("appActivity", props.getProperty("App.Activity"));
 		caps.setCapability("unicodeKeyboard", "true");
 		caps.setCapability("resetKeyboard", "true");
-//		caps.setCapability("javascriptEnabled", "true");
+		caps.setCapability("javascriptEnabled", "true");
 //		caps.setCapability("avd", "Pixel_8");
 //		caps.setCapability("avdLaunchTimeout", "500000");
 //	    File path = new File("src/test/resources");
@@ -58,14 +59,14 @@ public class CommonUtils extends PropertyUtility {
 		caps.setCapability("noReset", "false");
 		caps.setCapability("fullReset", "false");
 		caps.setCapability("autoAcceptAlerts", "true");
-		caps.setCapability("autoGrantPermissions", "false");
+		caps.setCapability("autoGrantPermissions", "true");
 		caps.setCapability("locationServicesEnabled", "true");
+		caps.setCapability("locationContextEnabled", "true");
 
 	}
 
 	public static AppiumDriver getAndroidDriver() {
 		try {
-//			serverurl = new URL("http://localhost:" + props.getProperty("appiumserverport") + "/wd/hub");
 			serverurl = new URL("http://127.0.0.1:4723/");
 
 		} catch (MalformedURLException e) {
@@ -75,8 +76,6 @@ public class CommonUtils extends PropertyUtility {
 
 
 		driver = new AndroidDriver(serverurl, caps);
-//		driver = new AndroidDriver(new URL(“http://localhost:4723/wd/hub”), caps);
-//		String sessionId=driver.getSessionId().toString();
 		return driver;
 
 	}
@@ -91,7 +90,6 @@ public class CommonUtils extends PropertyUtility {
 
 			e.printStackTrace();
 		}
-//		AppiumServer.AppiumStart();
 		driver = new IOSDriver(serverurl, caps);
 		return driver;
 	}
