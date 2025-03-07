@@ -44,6 +44,7 @@ public class Verify_UserLogin_Android extends BasePage {
 	public void GetAppLaunch() throws Exception
 
 	{
+		Thread.sleep(10000);
 		login.Android_credential();
 //		TestListeners.testReport.get().log(Status.INFO, "Compare OS, Enter Credentials");
 

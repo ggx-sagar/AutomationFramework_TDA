@@ -25,9 +25,10 @@ public class OrderDetail_iOS extends BasePage {
 	String wait_S = PropertyUtility.getreaddata("TIME_S");
 	int time_S = Integer.parseInt(wait_S);
 
-	public void PickUpTask() {
+	public void PickUpTask() throws InterruptedException {
+		
 //			try {
-		WebElement PickupTask = driver.findElement(By.xpath("//XCUIElementTypeStaticText[@name=\"PICK-UP\"]"));
+		WebElement PickupTask = driver.findElement(By.xpath("//XCUIElementTypeStaticText[@name='PICK-UP']"));
 		if (PickupTask.isDisplayed()) {
 			System.out.println("Pickup task found");
 //			WaitUtility.implicitwait(time_S);
@@ -35,20 +36,14 @@ public class OrderDetail_iOS extends BasePage {
 					.findElement(By.xpath("//XCUIElementTypeStaticText[contains(@name,'GGX')][1]"));
 //			WaitUtility.ExplicitWait(driver, Order_details, time_L);
 			Order_details.click();
-
-//					PickedDetails();
-
+			
+			}
 		}
-//			} catch (Exception e) {
-//				System.out.println("Pickup task not found");
-//				Delivertask();
-//			}
-	}
 
 	public void Delivertask() {
 //			try {
 		WebElement DeliveryTask = driver
-				.findElement(By.xpath("//XCUIElementTypeStaticText[contains(@name,'DELIVERY')]"));
+				.findElement(By.xpath("//XCUIElementTypeStaticText[@name='DELIVERY']"));
 
 		if (DeliveryTask.isDisplayed()) {
 			System.out.println("Deliver task found");
@@ -69,15 +64,17 @@ public class OrderDetail_iOS extends BasePage {
 		// TODO: handle exception
 	}
 
-	public void PickedDetails() {
+	public void PickedDetails() throws InterruptedException {
 //			try {
 		WebElement PickedUp = driver.findElement(By.xpath("//XCUIElementTypeButton[contains(@name,'Picked up')]"));
-		Scrolling.sc();
+//		Scrolling.sc();
 		if (PickedUp.isDisplayed()) {
 //			WaitUtility.ExplicitWait(driver, PickedUp, time_L);
 			PickedUp.click();
-//			WaitUtility.implicitwait(time_S);
-//			Scrolling.sc();
+			Thread.sleep(time_S);
+			WebElement Upload_SOP = driver.findElement(By.xpath("//XCUIElementTypeButton[@name='Upload and submit']"));
+			Upload_SOP.click();
+
 		}
 //				Taskselector();
 //			} catch (Exception e) {
@@ -87,15 +84,18 @@ public class OrderDetail_iOS extends BasePage {
 //			}
 	}
 
-	public void DeliveryDetails() {
+	public void DeliveryDetails() throws InterruptedException {
 //			try {
 		WebElement Delivery = driver.findElement(By.xpath("//XCUIElementTypeButton[contains(@name,'Delivered')]"));
 //				ApplicationUtility.swipeUpTillElement(Delivery);
-		Scrolling.sc();
+//		Scrolling.sc();
 		System.out.println("Element found");
 //		WaitUtility.ExplicitWait(driver, Delivery, time_L);
 		System.out.println("element to be clicked");
 		Delivery.click();
+		Thread.sleep(time_S);
+		WebElement Upload_SOP = driver.findElement(By.xpath("//XCUIElementTypeButton[@name='Upload and submit']"));
+		Upload_SOP.click();
 //		WaitUtility.implicitwait(time_S);
 //			Taskselector();
 //			} catch (Exception e) {

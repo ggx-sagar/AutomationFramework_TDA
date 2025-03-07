@@ -39,15 +39,17 @@ public class SignOut_iOS extends BasePage {
 	
 	public void Sign_Out_iOS() {
 		try {
-			Thread.sleep(time_L);
+			Thread.sleep(7000);
 //			WaitUtility.ExplicitWait(driver, Option, time_L);
 			if (Option.isDisplayed()) {
 				System.out.println("Option found");
 				Option.click();
 				System.out.println("Option Clicked");
-				Thread.sleep(time_S);
+				Thread.sleep(7000);
 				ClickSettings.click();
-				Thread.sleep(time_L);
+//				Thread.sleep();
+//				ClickSettings.click();
+				Thread.sleep(1300);
 				ClickSignOut.click();
 //     			WaitUtility.ExplicitWait(driver, ClickSignOut, time_L);
      			
@@ -56,7 +58,7 @@ public class SignOut_iOS extends BasePage {
 
 		} catch (Exception e) {
 			System.out.println("SignOut Failed");
-//			System.out.println(e);
+
 			Sign_Out_iOS();
 			// TODO: handle exception
 		}

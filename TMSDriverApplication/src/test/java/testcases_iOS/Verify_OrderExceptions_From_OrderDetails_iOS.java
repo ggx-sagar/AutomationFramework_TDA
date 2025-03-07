@@ -9,6 +9,8 @@ import org.testng.annotations.Test;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterTest;
+import org.testng.annotations.BeforeSuite;
+import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 import org.testng.annotations.Test;
 
@@ -16,70 +18,49 @@ import com.aventstack.extentreports.Status;
 
 import applicationPages.Exception_iOS;
 import applicationPages.Login_Page_iOS;
+import applicationPages.OrderDetail_iOS;
 import applicationPages.SignOut_iOS;
 import basepage.BasePage;
+import utilities.appiumServerManager;
 
 
 public class Verify_OrderExceptions_From_OrderDetails_iOS extends BasePage {
-	Login_Page_iOS login;
+	Login_Page_iOS Login;
 	Exception_iOS Ex;
 	SignOut_iOS Out;
 
-	@Test(priority = 1)
-	public void setupApp() {
-		setup();
-//		Assert.assertEquals(false, null);
-//		ExtentListeners.testReport.get().log(Status.INFO, "Application Setup, Launch SuccessFully");
-		login = new Login_Page_iOS(driver);
-
+	@BeforeSuite
+	public void AppiumStart() {
+		appiumServerManager.startAppiumServer();
 	}
 
-	@Test(priority = 2)
+	
+	
+	@BeforeTest
+	public void setupApp() throws InterruptedException {
+		setup();
+		Thread.sleep(10000);
+	}
+	
+	
+	@Test(priority = 1)
 	public void GetAppLaunch() throws Exception
 
 	{
-		login.iOS_Username();
-//		Assert.assertEquals(false, null);
-//		ExtentListeners.testReport.get().log(Status.INFO, "Click on Username, Username Added");
 
-	}
-	@Test(priority = 3)
-	public void Enter_Password() throws Exception
+		Login=new Login_Page_iOS(driver);
+		
+		Login.iOS_Username();
 
-	{
-		login.iOS_Password();
-//		Assert.assertEquals(false, null);
-//		ExtentListeners.testReport.get().log(Status.INFO, "Click on Password, Password Added");
+		Login.iOS_Password();
 
-	}
-	@Test(priority = 4)
-	public void Click_Submit() throws Exception
-
-	{
-		login.iOS_Submit();
-//		Assert.assertEquals(false, null);
-//		ExtentListeners.testReport.get().log(Status.INFO, "Click on Submit, Login Successful");
-
-	}
-//	@Test(priority = 5)
-//	public void Click_SavePassword() throws Exception
-//
-//	{
-//		login.Save_Password();
-//		Assert.assertEquals(false, null);
-//		ExtentListeners.testReport.get().log(Status.INFO, "Click on Save Password if available, Move to next");
-//
-//}
-	@Test(priority = 6)
-	public void Click_Continue() throws Exception
-
-	{
-//		boolean flag= false;
-		login.Continue_iOS();
-//		Assert.assertEquals(false, flag);
-//		ExtentListeners.testReport.get().log(Status.INFO, "Click on Continue, Welcome Inside TDA");
+		Login.iOS_Submit();
+		
+		Login.Continue_iOS();
+		
+		Login.location();
+		
 		Ex=new Exception_iOS(driver);
-
 	}
 	@Test(priority = 7)
 	public void ClickOnPickupTask() throws Exception

@@ -1,27 +1,22 @@
 package testcases_iOS;
 
-import java.util.concurrent.TimeUnit;
-
+import org.testng.annotations.Test;
+import org.testng.annotations.Test;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
-import com.aventstack.extentreports.Status;
-
-import org.testng.annotations.Test;
-import org.testng.annotations.Test;
-
 import applicationPages.Login_Page_iOS;
+import applicationPages.OrderDetail_iOS;
 import applicationPages.SignOut_iOS;
 import basepage.BasePage;
-import extentlisteners.TestListeners;
 import utilities.appiumServerManager;
 
-public class VerifyUserLogin_iOS extends BasePage{
+public class Verify_UserLogin_iOS extends BasePage{
 	Login_Page_iOS Login;
+	OrderDetail_iOS Detail;
 	SignOut_iOS Out;
-	
 	@BeforeSuite
 	public void AppiumStart() {
 		appiumServerManager.startAppiumServer();
@@ -52,14 +47,15 @@ public class VerifyUserLogin_iOS extends BasePage{
 		Login.Continue_iOS();
 		
 		Login.location();
+		
+
 	}
-	@Test(priority = 2)
+	@Test(priority = 6)
 	public void Signout() throws Exception{
 		Thread.sleep(10000);
 		Out=new SignOut_iOS(driver);
 		Out.Sign_Out_iOS();
 	}
-	
 	
 	@AfterTest
 	public void StopAppium() throws Exception{
@@ -67,6 +63,5 @@ public class VerifyUserLogin_iOS extends BasePage{
 		utilities.appiumServerManager.stopAppiumServer();
 		
 	}
-	
 
 }
